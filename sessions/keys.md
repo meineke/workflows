@@ -70,8 +70,9 @@ Your new `id_rsa` file is your private key and you must never share it. Your `id
 
 `ssh-keygen` uses a pseudorandom number generator to get seed values to create a keypair. Some tutorials tell you to add various arguments to the command, for example
 
-`$ ssh-keygen -t rsa -b 4096 -C you@email.com`
-
+```console
+$ ssh-keygen -t rsa -b 4096 -C you@email.com`
+```
 will generate a keypair using the RSA cryptosystem, 4096 bits in length, with a comment at the end identifying it as belonging to you@email.com. `-t rsa` is currently the default on almost all implementations of `ssh-keygen`. The default bit length is currently 2048. A 4096-bit key is far harder to crack and you can go ahead and use a 4096-bit key if you prefer, but the default 2048 bits is still (in 2020) adequate.
 
 #### The SSH passphrase
@@ -111,7 +112,7 @@ The <kbd>Ctrl</kbd> key is very special in terminals. In particular, <kbd>Ctrl</
 
 **Windows users:** `ssh-agent` is a little service that runs on your laptop and caches your decrypted private key. As long as it's running and has your decrypted key in memory, you don't have to use your passphrase. 
 
-```
+```console
 lm@laptop:~$ eval `ssh-agent`
 Agent pid 13379
 lm@laptop:~$ ssh-add
@@ -127,7 +128,9 @@ GitHub has some [instructions](https://help.github.com/en/github/authenticating-
 
 Now let's put your public key on a server you'll be accessing. MSiA students: try doing this with wolf.
 
-`ssh-copy-id myusername@myserver.com`
+```console
+ssh-copy-id myusername@myserver.com
+```
 
 You should get some helpful output. Now try `ssh myusername@myserver.com`. You should get right in without getting a prompt.
 
@@ -150,4 +153,7 @@ Now when you ssh to your server, you'll still be able to use your locally cached
 
 **Weird Unix-y thing:** If you get a permissions error about `.ssh/config`, change the permissions:
 
-`chmod 600 ~/.ssh/config`
+```console
+chmod 600 ~/.ssh/config
+```
+

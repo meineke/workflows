@@ -1,4 +1,7 @@
-# Secure Shell
+---
+title: Secure Shell
+---
+
 
 ## Working with SSH keypairs
 

@@ -29,11 +29,11 @@ By default, your keys are stored in `~/.ssh/`. (Remember that `~` is short for y
 
 If you have files called `id_rsa` and `id_rsa.pub`, you've already generated a keypair. If not, just run `ssh-keygen` to generate one. Accept the default file path and then enter a passphrase when it prompts you--you absolutely don't want to have an unlocked private key lying around!
 
-```bash
+```
 $ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/lm/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase):
+Enter passphrase (empty for no passphrase):   # it won't show anything when you type here
 Enter same passphrase again:
 Your identification has been saved in /home/lm/.ssh/id_rsa.
 Your public key has been saved in /home/lm/.ssh/id_rsa.pub.
@@ -42,6 +42,10 @@ The key fingerprint is:
 The key's randomart image is:
 [...]
 ```
+
+#### The private and public key files
+
+Your new `id_rsa` file is your private key and you must never share it. Your `id_rsa.pub` file is your public key, and that's what you're going to copy to remote servers to allow your private key to authenticate you. Your public key is not sensitive at all.
 
 #### The `ssh-keygen` command
 
@@ -62,3 +66,13 @@ You can change your passphrase without having any effect on the public key, so e
 #### The importance of file paths
 
 By default, SSH will look for your private key at the path `~/.ssh/id_rsa`. If you have multiple private keys, you'll have to specify the file path; for example, `ssh-add ~/.ssh/my_other_key`, or `ssh -i ~/.ssh/my_other_key me@server.school.edu`.
+
+### Add your public key to GitHub
+
+GitHub has instructions on [adding your public key](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account).
+
+#### But copying and pasting in the terminal is hard!
+
+The <kbd>Ctrl</kbd> key is very special in terminals. In particular, <kbd>Ctrl</kbd>+<kbd>C</kbd> is for interrupting a running process or "canceling" your current line. Here are three quick ways of using the clipboard in a terminal:
+
+- In Git Bash

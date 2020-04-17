@@ -12,7 +12,6 @@ $ wget bit.ly/intro-shell-data
 1. Introduction
     * Motivation: why learn the shell?
         * The shell is the most general toolbox in the computing world
-        * It's much, much more dominant than you think
         * Concepts from the shell pop up everywhere in computing
         * The shell allows you to solve many common problems yourself without having to wait on an IT person
         * Analytics trends come and go, but Bash is forever.
@@ -21,7 +20,7 @@ $ wget bit.ly/intro-shell-data
         it was proprietary, but AT&T licensed it to other vendors who made their 
         own OSes from it, all of which shared many common properties, allowing the computing world 
         to begin to standardize on a way of interacting with operating systems. Some of these 
-        lineages are still around, but you probably don't need to worry about them.
+        proprietary Unixes are still around, but you probably don't need to worry about them.
         * True Unixes were really expensive and not accessible to individuals. BSD and Linux arose
         as free and open source Unix clones. Today, Linux dominates
             * most public web servers and other internet infrastructure
@@ -29,7 +28,7 @@ $ wget bit.ly/intro-shell-data
             * embedded devices and the entire Internet of Things
             * Android and ChromeOS, which are Linux distributions
         * Basically every operating system you interact with is Unix-based, except for Windows.
-        * BSD itself is less common, but it forms the basis of Apple's entire line of OSes.
+        * BSD itself is less common, but all of Apple's OSes are derived from it
         * Today many people use Unix and Linux synonymously
     * Unix philosophy:
         * everything is a file

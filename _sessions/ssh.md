@@ -53,3 +53,9 @@ will generate a keypair using the RSA cryptosystem, 4096 bits in length, with a 
 The passphrase is used to encrypt your private key. If you don't set a passphrase, anybody who has access to your private key (`id_rsa` by default) can use it, which is quite risky.
 
 When you enter the passphrase, your private key is decrypted on your own machine. You're not sending the passphrase to the server you're authenticating to, and in fact the server has no idea whether you're using a passphrase on your private key or not.
+
+You can change your passphrase without having any effect on the public key, so even if you've already uploaded your public key somewhere, you can always add or change your private key's passphrase by doing `ssh-keygen -p`.
+
+#### The importance of file paths
+
+By default, SSH will look for your private key at the path `~/.ssh/id_rsa`. If you have multiple private keys, you'll have to specify the file path; for example, `ssh-add ~/.ssh/my_other_key`, or `ssh -i ~/.ssh/my_other_key me@server.school.edu`.

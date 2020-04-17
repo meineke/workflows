@@ -42,13 +42,15 @@ title: SSH Keys
 
 By default, your keys are stored in `~/.ssh/`. (Remember that `~` is short for your home directory, and because `.ssh` starts with a `.`, it's "hidden" because it holds configuration stuff and secret stuff.) Check whether you already have a keypair set up:
 
-`ls ~/.ssh`
+```console
+ls ~/.ssh
+```
 
 If you have files called `id_rsa` and `id_rsa.pub`, you've already generated a keypair. If not, just run `ssh-keygen` to generate one. Accept the default file path and then enter a passphrase when it prompts you--you absolutely don't want to have an unlocked private key lying around!
 
 You'll see something like this:
 
-```
+```console
 $ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/lm/.ssh/id_rsa):

@@ -3,5 +3,5 @@ A collection of workshop materials on using Linux, SSH, git, and GitHub in every
 
 ### Subjects
 
-1. [SSH](_sessions/ssh.html)
+1. [SSH](sessions/ssh.md)
 

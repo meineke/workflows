@@ -1,11 +1,8 @@
 ---
-title: Secure Shell
+title: SSH Keys
 ---
 
-
-## Working with SSH keypairs
-
-### TL;DR
+## TL;DR
 
 - What is all this about?
     - Keypairs are a way of using two little text files (a private key and a public key) to authenticate yourself (prove you are who you say you are) instead of using a password.
@@ -39,7 +36,7 @@ title: Secure Shell
 	- Your goal should be to actually type in a password as little as possible
 	- If you can remember your GitHub password, it's probably a bad password--you reused it or made it too simple
 	- You need to set up 2FA on github.com, but you have to switch to SSH auth to do so
-	- *BUT* if you use keys wrong, they can be *less* secure
+	- **But** if you use keys wrong, they can be **less** secure
 
 ### How to get set up quickly
 
@@ -93,6 +90,8 @@ If you do for whatever reason have multiple private keys, you'll have to specify
 
 GitHub has instructions on [adding your public key](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account).
 
+I recommend giving your new public key a descriptive name so you know, for example, what laptop you generated it on. Then you can delete it when you get rid of that laptop.
+
 #### But copying and pasting in the terminal is hard!
 
 The <kbd>Ctrl</kbd> key is very special in terminals. In particular, <kbd>Ctrl</kbd>+<kbd>C</kbd> is for interrupting a running process or "canceling" your current line. Here are three quick ways of using the clipboard in a terminal:
@@ -104,4 +103,49 @@ The <kbd>Ctrl</kbd> key is very special in terminals. In particular, <kbd>Ctrl</
     - <kbd>Ctrl</kbd>+<kbd>Ins</kbd> / <kbd>Shift</kbd>+<kbd>Ins</kbd> to copy/paste
 - In many/most terminals, you can right-click to paste, and highlight with the cursor then right-click to copy
 
+### Use the `ssh-agent` so you don't have to type your passphrase
 
+**Mac users:** This one is simpler for you. You should be prompted to save your key to the keychain the first time you use it. You can then skip the rest of the `ssh-agent` stuff.
+
+**Windows users:** `ssh-agent` is a little service that runs on your laptop and caches your decrypted private key. As long as it's running and has your decrypted key in memory, you don't have to use your passphrase. 
+
+```
+lm@laptop:~$ eval `ssh-agent`
+Agent pid 13379
+lm@laptop:~$ ssh-add
+Enter passphrase for /home/lm/.ssh/id_rsa:
+Identity added: /home/lm/.ssh/id_rsa (/home/lm/.ssh/id_rsa)
+```
+
+#### That's still too much typing
+
+GitHub has some [instructions](https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows) that give you a chunk of code you can paste into a special config file in your home directory called `.profile`. This will automatically start the `ssh-agent` when you run Git Bash.
+
+### Using your keys to log into servers
+
+Now let's put your public key on a server you'll be accessing. MSiA students: try doing this with wolf.
+
+`ssh-copy-id myusername@myserver.com`
+
+You should get some helpful output. Now try `ssh myusername@myserver.com`. You should get right in without getting a prompt.
+
+So ssh keys aren't just for GitHub! Being able to silently authenticate to a server gives you lots of nice options.
+
+### Working with your GitHub repositories from a server
+
+So let's say you have a private repository on GitHub with your code, and you need to pull it and run it on a server. How do you do it? By using "ssh agent forwarding."
+
+Open up `~/.ssh/config`. Create the file if it doesn't already exist. Add these lines, substituting in your own username and server:
+
+```
+Host myserver
+HostName myserver.edu
+UserName myusername
+ForwardAgent yes
+```
+
+Now when you ssh to your server, you'll still be able to use your locally cached credential. There's more detail on this in [GitHub's documentation on agent forwarding.](https://developer.github.com/v3/guides/using-ssh-agent-forwarding/)
+
+**Weird Unix-y thing:** If you get a permissions error about `.ssh/config`, change the permissions:
+
+`chmod 600 ~/.ssh/config`

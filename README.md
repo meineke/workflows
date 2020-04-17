@@ -3,5 +3,5 @@ A collection of workshop materials on using Linux, SSH, git, and GitHub in every
 ### Subjects
 
 1. [Shell basics](sessions/shell.md)
-2. [SSH](sessions/ssh.md)
+2. [All about SSH keys](sessions/keys.md)
 

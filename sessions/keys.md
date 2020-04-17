@@ -142,7 +142,7 @@ Open up `~/.ssh/config`. Create the file if it doesn't already exist. Add these 
 ```
 Host myserver
 HostName myserver.edu
-UserName myusername
+User myusername
 ForwardAgent yes
 ```
 

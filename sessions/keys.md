@@ -144,9 +144,9 @@ Open up `~/.ssh/config`. Create the file if it doesn't already exist. Add these 
 
 ```
 Host myserver
-HostName myserver.edu
-User myusername
-ForwardAgent yes
+ HostName myserver.edu
+ User myusername
+ ForwardAgent yes
 ```
 
 Now when you ssh to your server, you'll still be able to use your locally cached credential. There's more detail on this in [GitHub's documentation on agent forwarding.](https://developer.github.com/v3/guides/using-ssh-agent-forwarding/)

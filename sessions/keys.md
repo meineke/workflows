@@ -2,6 +2,24 @@
 title: SSH Keys
 ---
 
+
+<!-- vim-markdown-toc GFM -->
+
+* [TL;DR](#tldr)
+    * [Motivation: Why bother with keys instead of just using passwords?](#motivation-why-bother-with-keys-instead-of-just-using-passwords)
+    * [How to get set up quickly](#how-to-get-set-up-quickly)
+        * [The private and public key files](#the-private-and-public-key-files)
+        * [The SSH passphrase](#the-ssh-passphrase)
+        * [The importance of file paths](#the-importance-of-file-paths)
+    * [Add your public key to GitHub](#add-your-public-key-to-github)
+        * [But copying and pasting in the terminal is hard!](#but-copying-and-pasting-in-the-terminal-is-hard)
+    * [Use the `ssh-agent` so you don't have to type your passphrase](#use-the-ssh-agent-so-you-dont-have-to-type-your-passphrase)
+        * [That's still too much typing](#thats-still-too-much-typing)
+    * [Using your keys to log into servers](#using-your-keys-to-log-into-servers)
+    * [Working with your GitHub repositories from a server](#working-with-your-github-repositories-from-a-server)
+
+<!-- vim-markdown-toc -->
+
 ## TL;DR
 
 - What is all this about?

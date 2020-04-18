@@ -4,4 +4,4 @@ email: meineke@uchicago.edu
 description: A collection of workshop materials on using Linux, SSH, git, and GitHub in everyday workflows
 
 theme: minima
-favicon: assets/favicon.ico
+site_favicon: assets/favicon.ico

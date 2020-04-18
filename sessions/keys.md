@@ -6,16 +6,16 @@ title: SSH Keys
 <!-- vim-markdown-toc GFM -->
 
 * [TL;DR](#tldr)
-    * [Motivation: Why bother with keys instead of just using passwords?](#motivation-why-bother-with-keys-instead-of-just-using-passwords)
-    * [How to get set up quickly](#how-to-get-set-up-quickly)
-        * [The private and public key files](#the-private-and-public-key-files)
+* [Motivation: Why bother with keys instead of just using passwords?](#motivation-why-bother-with-keys-instead-of-just-using-passwords)
+* [How to get set up quickly](#how-to-get-set-up-quickly)
+    * [The private and public key files](#the-private-and-public-key-files)
         * [The SSH passphrase](#the-ssh-passphrase)
         * [The importance of file paths](#the-importance-of-file-paths)
     * [Add your public key to GitHub](#add-your-public-key-to-github)
         * [But copying and pasting in the terminal is hard!](#but-copying-and-pasting-in-the-terminal-is-hard)
     * [Use the `ssh-agent` so you don't have to type your passphrase](#use-the-ssh-agent-so-you-dont-have-to-type-your-passphrase)
         * [That's still too much typing](#thats-still-too-much-typing)
-    * [Using your keys to log into servers](#using-your-keys-to-log-into-servers)
+* [Using your keys to log into servers](#using-your-keys-to-log-into-servers)
     * [Working with your GitHub repositories from a server](#working-with-your-github-repositories-from-a-server)
 
 <!-- vim-markdown-toc -->
@@ -39,7 +39,7 @@ title: SSH Keys
     - `ssh-copy-id myusername@myserver.com`
     - `ssh myusername@myserver.com` to test
 
-### Motivation: Why bother with keys instead of just using passwords?
+## Motivation: Why bother with keys instead of just using passwords?
 
 - Necessity. You **need** keys in order to
 	- Use many big data clusters and other systems that require non-interactive login
@@ -56,7 +56,7 @@ title: SSH Keys
 	- You need to set up 2FA on github.com, but you have to switch to SSH auth to do so
 	- **But** if you use keys wrong, they can be **less** secure
 
-### How to get set up quickly
+## How to get set up quickly
 
 By default, your keys are stored in `~/.ssh/`. (Remember that `~` is short for your home directory, and because `.ssh` starts with a `.`, it's "hidden" because it holds configuration stuff and secret stuff.) Check whether you already have a keypair set up:
 
@@ -82,7 +82,7 @@ The key's randomart image is:
 [...]
 ```
 
-#### The private and public key files
+### The private and public key files
 
 Your new `id_rsa` file is your private key and you must never share it. Your `id_rsa.pub` file is your public key, and that's what you're going to copy to remote servers to allow your private key to authenticate you. Your public key is not sensitive at all.
 
@@ -142,7 +142,7 @@ Identity added: /home/lm/.ssh/id_rsa (/home/lm/.ssh/id_rsa)
 
 GitHub has some [instructions](https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows) that give you a chunk of code you can paste into a special config file in your home directory called `.profile`. This will automatically start the `ssh-agent` when you run Git Bash.
 
-### Using your keys to log into servers
+## Using your keys to log into servers
 
 Now let's put your public key on a server you'll be accessing. MSiA students: try doing this with wolf.
 

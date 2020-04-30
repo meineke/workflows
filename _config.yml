@@ -1,7 +1,16 @@
+---
 title: Workflows for Data Analysts
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
 author: Lewis Meineke
 email: meineke@uchicago.edu
-description: A collection of workshop materials on using Linux, SSH, git, and GitHub in everyday workflows
-
+description: A collection of workshop materials on using Linux, SSH, git, and GitHub
+  in everyday workflows
 theme: minima
 site_favicon: favicon.ico

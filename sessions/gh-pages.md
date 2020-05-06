@@ -11,8 +11,8 @@ title: GitHub Pages
 
 ## Motivating use case: a simple website with GitHub Pages
 
-- GitHub Pages is a service provided by GitHub that will turn a GitHub repo into a static website. It's used a lot for personal websites, project documentation, and the like.
-- We can use the stuff we've learned so far to very quickly and easily start working on a little website.
+
+GitHub Pages is a service provided by GitHub that will turn a GitHub repo into a static website. It's used a lot for personal websites, project documentation, and other websites that don't need heavy server-side software. We can use the stuff we've learned so far to very quickly and easily start working on a little website.
 
 ## Skills we'll exercise
 

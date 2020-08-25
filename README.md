@@ -7,3 +7,4 @@ A collection of workshop materials on using Linux, SSH, git, and GitHub in every
 3. [Practice our skills with GitHub Pages](sessions/gh-pages.md)
 
 
+The site for this repo is at https://meineke.github.io/workflows.

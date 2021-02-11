@@ -59,6 +59,7 @@ title: Shell basics
         custom keyboard shortcuts, etc.
         * Bash: the default shell for regular (non-admin) users on most Unix-like OSes
 
+
 2. Basic commands
     * `pwd`, `whoami`, `hostname`, `ls`, `ls -l`, `echo`, `which`
     * `Ctrl + C`, for example to escape `echo "hello`
